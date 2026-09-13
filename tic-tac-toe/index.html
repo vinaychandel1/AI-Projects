@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tic-Tac-Toe</h1>
+
+        <div class="scoreboard">
+            <div class="score-item">
+                <span class="player-label">Player X</span>
+                <span class="score-value" id="scoreX">0</span>
+            </div>
+            <div class="score-item">
+                <span class="player-label">Draws</span>
+                <span class="score-value" id="scoreDraw">0</span>
+            </div>
+            <div class="score-item">
+                <span class="player-label">Player O</span>
+                <span class="score-value" id="scoreO">0</span>
+            </div>
+        </div>
+
+        <div class="game-status">
+            <p id="statusText">Player X's Turn</p>
+        </div>
+
+        <div class="game-board">
+            <button class="cell" data-index="0"></button>
+            <button class="cell" data-index="1"></button>
+            <button class="cell" data-index="2"></button>
+            <button class="cell" data-index="3"></button>
+            <button class="cell" data-index="4"></button>
+            <button class="cell" data-index="5"></button>
+            <button class="cell" data-index="6"></button>
+            <button class="cell" data-index="7"></button>
+            <button class="cell" data-index="8"></button>
+        </div>
+
+        <button class="restart-btn" id="restartBtn">Restart Game</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
