@@ -1,0 +1,29 @@
+{
+  "name": "morning-news-agent",
+  "version": "1.0.0",
+  "description": "Simple morning news AI agent that sends WhatsApp briefings",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node schedule.js",
+    "news": "node send-news.js",
+    "test": "node send-news.js",
+    "now": "node schedule.js --now"
+  },
+  "keywords": [
+    "news",
+    "ai",
+    "whatsapp",
+    "automation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.6",
+    "dotenv": "^16.4.5",
+    "node-cron": "^3.0.3",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^10.0.10",
+    "twilio": "^6.1.1"
+  }
+}
