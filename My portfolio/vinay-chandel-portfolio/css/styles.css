@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    cursor: none;
+}
+
+#cursor {
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}

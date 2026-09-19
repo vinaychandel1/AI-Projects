@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinay Chandel | Integration Consultant & Technical Lead</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-[#050505] text-white overflow-x-hidden">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center transition-opacity duration-1000">
+        <h1 class="text-4xl font-light tracking-tighter">VINAY CHANDEL</h1>
+        <div class="w-24 h-[1px] bg-white/20 mt-4"><div id="progress" class="h-full bg-white w-0 transition-all duration-300"></div></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor" class="fixed w-8 h-8 rounded-full border border-white/50 pointer-events-none z-[999] transition-transform duration-75"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 flex justify-between px-12 py-8 items-center mix-blend-difference">
+        <div class="text-xl font-bold tracking-tighter">VINAY CHANDEL</div>
+        <button id="menu-btn" class="uppercase tracking-widest text-sm font-bold">Menu</button>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="min-h-screen flex flex-col justify-center px-12 relative">
+        <div class="absolute inset-0 z-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+        <h1 class="text-[12vw] font-bold leading-[0.85] tracking-tighter z-10">VINAY<br>CHANDEL</h1>
+        <p class="text-xl max-w-lg mt-8 text-gray-400">Integration Consultant & Technical Lead specializing in enterprise integration, EDI, and Cloud architectures.</p>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="py-32 px-12">
+        <h2 class="text-6xl font-bold mb-20 text-center">Experience</h2>
+        <div class="max-w-4xl mx-auto space-y-24">
+            <div class="reveal">
+                <h3 class="text-4xl font-bold">HCLTech</h3>
+                <p class="text-cyan-400 font-bold uppercase tracking-widest mt-2">Technical Lead | Mar 2025 – Present</p>
+                <div class="mt-8 text-xl leading-relaxed text-gray-300 border-l border-white/20 pl-6">
+                    Reduced development time by <span class="text-4xl font-bold">40%</span> through advanced B2B mapping and automated EDI workflows using webMethods.io.
+                </div>
+            </div>
+            <div class="reveal">
+                <h3 class="text-4xl font-bold">TCS</h3>
+                <p class="text-cyan-400 font-bold uppercase tracking-widest mt-2">Systems Engineer | Oct 2021 – Mar 2025</p>
+                <div class="mt-8 text-xl leading-relaxed text-gray-300 border-l border-white/20 pl-6">
+                    Achieved <span class="text-4xl font-bold">30%</span> cost reduction by architecting high-performance cloud MFT integrations into ADLS and deploying CI/CD via Jenkins.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
