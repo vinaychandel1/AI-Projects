@@ -10,6 +10,9 @@
     <!-- GSAP & ScrollTrigger for Awwwards-level Motion -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Three.js and Anime.js for 3D and micro-animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <link rel="stylesheet" href="vinay-chandel-portfolio/css/styles.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap');
@@ -45,17 +48,8 @@
 
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex flex-col justify-center px-8 md:px-16 relative overflow-hidden pt-20">
-        <div class="absolute inset-0 z-0 opacity-10 bg-[radial-gradient(#22d3ee_1px,transparent_1px)] [background-size:32px_32px]"></div>
-
-        <!-- Interactive Integration SVG Background -->
-        <svg class="absolute inset-0 w-full h-full -z-10 opacity-20 pointer-events-none" viewBox="0 0 1000 1000">
-            <path d="M100,500 L300,500 L500,300 L700,500 L900,500" stroke="#22d3ee" stroke-width="2" fill="none" class="network-path"/>
-            <circle class="node" cx="100" cy="500" r="6" fill="#fff"/>
-            <circle class="node" cx="300" cy="500" r="6" fill="#22d3ee"/>
-            <circle class="node" cx="500" cy="300" r="8" fill="#a855f7"/>
-            <circle class="node" cx="700" cy="500" r="6" fill="#22d3ee"/>
-            <circle class="node" cx="900" cy="500" r="6" fill="#fff"/>
-        </svg>
+        <!-- Interactive Three.js 3D Background Canvas -->
+        <div id="three-canvas-container" class="absolute inset-0 z-0 opacity-40"></div>
 
         <div class="max-w-7xl mx-auto w-full z-10 grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -163,7 +157,7 @@
                     <p class="text-gray-300 text-lg mb-6">Developed EDI integrations using IBM webMethods.io for retail/logistics domains. Implemented B2B mappings (X12, EDIFACT, cXML, VDA) and end-to-end data transformations (AS2, SFTP, HTTPS). Utilized SAP S/4HANA integration.</p>
                     <div class="grid md:grid-cols-2 gap-6 p-6 rounded-xl bg-white/5 border border-white/10">
                         <div>
-                            <div class="text-4xl font-extrabold text-cyan-400 mb-1">40%</div>
+                            <div class="text-4xl font-extrabold text-cyan-400 mb-1 stat-value" data-target-value="40">0</div>
                             <div class="text-sm text-gray-400 uppercase tracking-wider">Development Time Reduction</div>
                         </div>
                         <div>
@@ -186,7 +180,7 @@
                     <p class="text-gray-300 text-lg mb-6">Managed webMethods server integration, API Gateway, EDI X12, and Trading Networks. Deployed code using SVN and Jenkins CI/CD on-premises and in production.</p>
                     <div class="grid md:grid-cols-2 gap-6 p-6 rounded-xl bg-white/5 border border-white/10">
                         <div>
-                            <div class="text-4xl font-extrabold text-cyan-400 mb-1">30%</div>
+                            <div class="text-4xl font-extrabold text-cyan-400 mb-1 stat-value" data-target-value="30">0</div>
                             <div class="text-sm text-gray-400 uppercase tracking-wider">Cost Reduction</div>
                         </div>
                         <div>
@@ -318,6 +312,7 @@
         &copy; 2026 Vinay Chandel. All rights reserved.
     </footer>
 
+    <script src="js/three-scene.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
