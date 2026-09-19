@@ -19,6 +19,10 @@ class ThreeHeroConstellation {
         this.positions = new Float32Array(this.particlesCount * 3);
         this.velocities = [];
 
+        // Lines for neural network effect
+        this.lineGeometry = new THREE.BufferGeometry();
+        this.linePositions = new Float32Array(this.particlesCount * 2 * 3);
+
         for (let i = 0; i < this.particlesCount; i++) {
             this.positions[i * 3] = (Math.random() - 0.5) * 800;
             this.positions[i * 3 + 1] = (Math.random() - 0.5) * 800;
@@ -43,6 +47,15 @@ class ThreeHeroConstellation {
 
         this.points = new THREE.Points(this.geometry, material);
         this.scene.add(this.points);
+
+        // Line material for neural connections
+        const lineMaterial = new THREE.LineBasicMaterial({
+            color: 0x22d3ee,
+            transparent: true,
+            opacity: 0.2
+        });
+        this.lines = new THREE.LineSegments(this.lineGeometry, lineMaterial);
+        this.scene.add(this.lines);
 
         this.mouseX = 0;
         this.mouseY = 0;
@@ -84,6 +97,28 @@ class ThreeHeroConstellation {
             if (Math.abs(positions[i * 3 + 2]) > 400) this.velocities[i].z *= -1;
         }
         this.geometry.attributes.position.needsUpdate = true;
+
+        // Neural network connections
+        let lineIdx = 0;
+        for (let i = 0; i < this.particlesCount; i++) {
+            for (let j = i + 1; j < this.particlesCount; j++) {
+                const dx = positions[i * 3] - positions[j * 3];
+                const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
+                const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
+                const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+
+                if (dist < 100) {
+                    this.linePositions[lineIdx++] = positions[i * 3];
+                    this.linePositions[lineIdx++] = positions[i * 3 + 1];
+                    this.linePositions[lineIdx++] = positions[i * 3 + 2];
+                    this.linePositions[lineIdx++] = positions[j * 3];
+                    this.linePositions[lineIdx++] = positions[j * 3 + 1];
+                    this.linePositions[lineIdx++] = positions[j * 3 + 2];
+                }
+            }
+        }
+        this.lineGeometry.setAttribute('position', new THREE.BufferAttribute(this.linePositions.slice(0, lineIdx), 3));
+        this.lineGeometry.attributes.position.needsUpdate = true;
 
         this.renderer.render(this.scene, this.camera);
     }
