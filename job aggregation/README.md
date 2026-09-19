@@ -14,7 +14,7 @@ This is a monorepo managed with npm workspaces:
 - `packages/db`: Prisma database schema and client
 - `packages/core`: Core domain logic and shared utilities
 
-## Status
-Phase 1: Foundation complete (Monorepo, Auth, Profile/Skill Management, UI skeleton).
+## Status & Features
+- **Phase 1 & 2 Complete**: Monorepo setup, Database schema with Prisma, Auth.js v5, modular Job Source adapters (`MockJobSourceAdapter`), job ingestion and listings API, Job Board UI, AI provider abstraction (`MockAIProvider`), resume parsing endpoint, 3-layer AI job matching engine, job application Kanban tracker, and job alerts.
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
