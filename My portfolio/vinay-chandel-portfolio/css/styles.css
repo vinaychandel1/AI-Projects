@@ -1,23 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap');
 
-body {
-    cursor: none;
+/* Custom Glass & Utilities */
+.glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-#cursor {
-    mix-blend-mode: difference;
-    transition: transform 0.1s ease;
+.glass:hover {
+    border-color: rgba(34, 211, 238, 0.3);
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.1);
 }
 
-.reveal {
-    opacity: 0;
-    transform: translateY(100px);
-    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+::-webkit-scrollbar-thumb {
+    background: #22d3ee;
+    border-radius: 3px;
 }
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+/* Selection */
+::selection {
+    background: #22d3ee;
+    color: #050505;
 }

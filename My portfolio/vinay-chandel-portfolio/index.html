@@ -4,52 +4,319 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vinay Chandel | Integration Consultant & Technical Lead</title>
+    <meta name="description" content="Portfolio of Vinay Chandel, Integration Consultant and Technical Lead specializing in IBM webMethods, EDI, B2B, and Cloud Integration.">
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- GSAP & ScrollTrigger for Awwwards-level Motion -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="vinay-chandel-portfolio/css/styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #e2e8f0; overflow-x: hidden; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+    </style>
 </head>
-<body class="bg-[#050505] text-white overflow-x-hidden">
-    <!-- Preloader -->
-    <div id="preloader" class="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center transition-opacity duration-1000">
-        <h1 class="text-4xl font-light tracking-tighter">VINAY CHANDEL</h1>
-        <div class="w-24 h-[1px] bg-white/20 mt-4"><div id="progress" class="h-full bg-white w-0 transition-all duration-300"></div></div>
+<body class="selection:bg-cyan-900 selection:text-white">
+
+    <!-- Cinematic Preloader -->
+    <div id="preloader" class="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center">
+        <h1 class="text-3xl md:text-5xl font-light tracking-tighter text-white">VINAY CHANDEL</h1>
+        <p class="text-cyan-400 text-xs tracking-widest uppercase mt-2">Integration Consultant</p>
+        <div class="w-32 h-[1px] bg-white/20 mt-8 relative overflow-hidden">
+            <div id="progress" class="absolute inset-y-0 left-0 bg-cyan-400 w-0 transition-all duration-300"></div>
+        </div>
     </div>
 
     <!-- Custom Cursor -->
-    <div id="cursor" class="fixed w-8 h-8 rounded-full border border-white/50 pointer-events-none z-[999] transition-transform duration-75"></div>
+    <div id="cursor" class="fixed w-6 h-6 rounded-full border border-cyan-400 pointer-events-none z-[999] transition-transform duration-75 hidden md:block"></div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 flex justify-between px-12 py-8 items-center mix-blend-difference">
-        <div class="text-xl font-bold tracking-tighter">VINAY CHANDEL</div>
-        <button id="menu-btn" class="uppercase tracking-widest text-sm font-bold">Menu</button>
+    <nav class="fixed w-full z-50 flex justify-between px-8 md:px-16 py-6 items-center mix-blend-difference">
+        <a href="#home" class="text-xl font-bold tracking-tighter text-white">VINAY CHANDEL</a>
+        <div class="hidden md:flex gap-10 text-xs font-bold tracking-widest uppercase text-gray-400">
+            <a href="#about" class="hover:text-cyan-400 transition">About</a>
+            <a href="#expertise" class="hover:text-cyan-400 transition">Expertise</a>
+            <a href="#experience" class="hover:text-cyan-400 transition">Experience</a>
+            <a href="#projects" class="hover:text-cyan-400 transition">Projects</a>
+            <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+        </div>
     </nav>
 
-    <!-- Hero -->
-    <section id="home" class="min-h-screen flex flex-col justify-center px-12 relative">
-        <div class="absolute inset-0 z-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-        <h1 class="text-[12vw] font-bold leading-[0.85] tracking-tighter z-10">VINAY<br>CHANDEL</h1>
-        <p class="text-xl max-w-lg mt-8 text-gray-400">Integration Consultant & Technical Lead specializing in enterprise integration, EDI, and Cloud architectures.</p>
-    </section>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex flex-col justify-center px-8 md:px-16 relative overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0 opacity-10 bg-[radial-gradient(#22d3ee_1px,transparent_1px)] [background-size:32px_32px]"></div>
 
-    <!-- Experience -->
-    <section id="experience" class="py-32 px-12">
-        <h2 class="text-6xl font-bold mb-20 text-center">Experience</h2>
-        <div class="max-w-4xl mx-auto space-y-24">
-            <div class="reveal">
-                <h3 class="text-4xl font-bold">HCLTech</h3>
-                <p class="text-cyan-400 font-bold uppercase tracking-widest mt-2">Technical Lead | Mar 2025 – Present</p>
-                <div class="mt-8 text-xl leading-relaxed text-gray-300 border-l border-white/20 pl-6">
-                    Reduced development time by <span class="text-4xl font-bold">40%</span> through advanced B2B mapping and automated EDI workflows using webMethods.io.
+        <!-- Interactive Integration SVG Background -->
+        <svg class="absolute inset-0 w-full h-full -z-10 opacity-20 pointer-events-none" viewBox="0 0 1000 1000">
+            <path d="M100,500 L300,500 L500,300 L700,500 L900,500" stroke="#22d3ee" stroke-width="2" fill="none" class="network-path"/>
+            <circle class="node" cx="100" cy="500" r="6" fill="#fff"/>
+            <circle class="node" cx="300" cy="500" r="6" fill="#22d3ee"/>
+            <circle class="node" cx="500" cy="300" r="8" fill="#a855f7"/>
+            <circle class="node" cx="700" cy="500" r="6" fill="#22d3ee"/>
+            <circle class="node" cx="900" cy="500" r="6" fill="#fff"/>
+        </svg>
+
+        <div class="max-w-7xl mx-auto w-full z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-cyan-400 uppercase tracking-widest text-xs font-bold block mb-4">Enterprise Integration Architecture</span>
+                <h1 id="hero-title" class="text-6xl md:text-8xl font-black tracking-tighter leading-none mb-6">VINAY<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">CHANDEL</span></h1>
+                <p id="hero-subtitle" class="text-xl text-gray-300 font-light mb-8 max-w-lg">Integration Consultant / Technical Lead specializing in IBM webMethods Hybrid Integration across on-premise and cloud environments.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#projects" class="px-8 py-4 bg-cyan-500 text-black font-bold text-sm tracking-wider uppercase rounded-full hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/20">Explore Projects</a>
+                    <a href="#contact" class="px-8 py-4 border border-white/20 text-white font-bold text-sm tracking-wider uppercase rounded-full hover:bg-white/5 transition">Get in Touch</a>
                 </div>
             </div>
-            <div class="reveal">
-                <h3 class="text-4xl font-bold">TCS</h3>
-                <p class="text-cyan-400 font-bold uppercase tracking-widest mt-2">Systems Engineer | Oct 2021 – Mar 2025</p>
-                <div class="mt-8 text-xl leading-relaxed text-gray-300 border-l border-white/20 pl-6">
-                    Achieved <span class="text-4xl font-bold">30%</span> cost reduction by architecting high-performance cloud MFT integrations into ADLS and deploying CI/CD via Jenkins.
+            <!-- Core Engine Visual Card -->
+            <div class="relative h-[400px] hidden md:flex items-center justify-center">
+                <div class="absolute w-72 h-72 rounded-full border border-cyan-500/20 animate-ping"></div>
+                <div class="absolute w-96 h-96 rounded-full border border-purple-500/20 animate-pulse"></div>
+                <div class="glass p-6 rounded-2xl border border-white/10 text-center relative z-10 max-w-xs shadow-2xl">
+                    <div class="text-cyan-400 font-mono text-xs uppercase tracking-widest mb-2">Core Engine</div>
+                    <div class="text-2xl font-bold mb-1">webMethods.io</div>
+                    <div class="text-xs text-gray-400">Hybrid Integration Platform</div>
+                    <div class="mt-4 pt-4 border-t border-white/10 flex justify-around text-xs font-mono text-gray-300">
+                        <span>EDI</span>
+                        <span>•</span>
+                        <span>B2B</span>
+                        <span>•</span>
+                        <span>APIs</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 px-8 md:px-16 border-t border-white/10 relative">
+        <div class="max-w-5xl mx-auto">
+            <span class="text-cyan-400 uppercase tracking-widest text-xs font-bold block mb-4">01 / About Me</span>
+            <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-12">I build reliable enterprise integration systems.</h2>
+            <div class="grid md:grid-cols-2 gap-12 text-gray-300 text-lg leading-relaxed">
+                <p>Integration Developer with strong experience in EDI, B2B, and Enterprise Application Integration (EAI), specializing in IBM webMethods Hybrid Integration across on-premise and cloud environments.</p>
+                <p>Proven ability to build reliable enterprise integration systems. Based in Bengaluru, India (560073). Focused on delivering high-performance API and cloud architectures for global logistics, retail, and healthcare clients.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="py-32 px-8 md:px-16 border-t border-white/10 bg-black/40">
+        <div class="max-w-7xl mx-auto">
+            <span class="text-cyan-400 uppercase tracking-widest text-xs font-bold block mb-4">02 / Technical Stack</span>
+            <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-16">Core Expertise & Tools</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="glass p-8 rounded-2xl border border-white/10 hover:border-cyan-500/50 transition duration-300">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-4">Technical</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>webMethods Integration Server</li>
+                        <li>webMethods.io</li>
+                        <li>API Gateway</li>
+                        <li>Azure, ADLS, ADF</li>
+                        <li>Databricks, Gen AI</li>
+                    </ul>
+                </div>
+                <div class="glass p-8 rounded-2xl border border-white/10 hover:border-cyan-500/50 transition duration-300">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-4">CI/CD & DevOps</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>Jenkins</li>
+                        <li>SVN</li>
+                        <li>GitHub</li>
+                        <li>Azure DevOps</li>
+                    </ul>
+                </div>
+                <div class="glass p-8 rounded-2xl border border-white/10 hover:border-cyan-500/50 transition duration-300">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-4">Systems</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>Windows Server</li>
+                        <li>Ubuntu Linux</li>
+                    </ul>
+                </div>
+                <div class="glass p-8 rounded-2xl border border-white/10 hover:border-cyan-500/50 transition duration-300">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-4">Tools & Suite</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>Software AG Designer</li>
+                        <li>PuTTY, WinSCP/FileZilla</li>
+                        <li>VS Code, SAP Logon</li>
+                        <li>Universal Message, Claude Code</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-32 px-8 md:px-16 border-t border-white/10">
+        <div class="max-w-5xl mx-auto">
+            <span class="text-cyan-400 uppercase tracking-widest text-xs font-bold block mb-4">03 / Experience</span>
+            <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-20">Professional Journey</h2>
+            <div class="space-y-24">
+                <!-- HCLTech -->
+                <div class="relative pl-8 border-l border-cyan-500/30">
+                    <div class="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-cyan-400"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold">HCLTech</h3>
+                            <p class="text-cyan-400 font-mono text-sm">Technical Lead • Noida, India</p>
+                        </div>
+                        <span class="text-sm font-mono text-gray-400 mt-2 md:mt-0">March 2025 – Present</span>
+                    </div>
+                    <p class="text-gray-300 text-lg mb-6">Developed EDI integrations using IBM webMethods.io for retail/logistics domains. Implemented B2B mappings (X12, EDIFACT, cXML, VDA) and end-to-end data transformations (AS2, SFTP, HTTPS). Utilized SAP S/4HANA integration.</p>
+                    <div class="grid md:grid-cols-2 gap-6 p-6 rounded-xl bg-white/5 border border-white/10">
+                        <div>
+                            <div class="text-4xl font-extrabold text-cyan-400 mb-1">40%</div>
+                            <div class="text-sm text-gray-400 uppercase tracking-wider">Development Time Reduction</div>
+                        </div>
+                        <div>
+                            <div class="text-xl font-bold text-white mb-1">SAP MDG & REST APIs</div>
+                            <div class="text-sm text-gray-400">Designed REST APIs for SAP Master Data Governance</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TCS -->
+                <div class="relative pl-8 border-l border-cyan-500/30">
+                    <div class="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-cyan-400"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold">TCS (Tata Consultancy Services)</h3>
+                            <p class="text-cyan-400 font-mono text-sm">Systems Engineer • Noida, India</p>
+                        </div>
+                        <span class="text-sm font-mono text-gray-400 mt-2 md:mt-0">October 2021 – March 2025</span>
+                    </div>
+                    <p class="text-gray-300 text-lg mb-6">Managed webMethods server integration, API Gateway, EDI X12, and Trading Networks. Deployed code using SVN and Jenkins CI/CD on-premises and in production.</p>
+                    <div class="grid md:grid-cols-2 gap-6 p-6 rounded-xl bg-white/5 border border-white/10">
+                        <div>
+                            <div class="text-4xl font-extrabold text-cyan-400 mb-1">30%</div>
+                            <div class="text-sm text-gray-400 uppercase tracking-wider">Cost Reduction</div>
+                        </div>
+                        <div>
+                            <div class="text-xl font-bold text-white mb-1">Cloud MFT Integration</div>
+                            <div class="text-sm text-gray-400">Optimized integration into Azure Data Lake Storage (ADLS)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section (GSAP Pinned Storytelling) -->
+    <section id="projects" class="py-32 px-8 md:px-16 border-t border-white/10 bg-black/40">
+        <div class="max-w-7xl mx-auto">
+            <span class="text-cyan-400 uppercase tracking-widest text-xs font-bold block mb-4">04 / Projects</span>
+            <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-20">Selected Enterprise Work</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Polaris -->
+                <div class="glass p-8 rounded-2xl border border-white/10 hover:border-cyan-500/50 transition duration-300 flex flex-col justify-between project-card">
+                    <div>
+                        <div class="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">ExxonMobil</div>
+                        <h3 class="text-3xl font-bold mb-4">Polaris</h3>
+                        <p class="text-gray-300 text-sm mb-6">Modernized enterprise integration by migrating 700+ interfaces from On-Premise to webMethods.io. Built global EDI integrations and integrated with SAP MDG/MDM via REST APIs.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 text-xs font-mono text-gray-400">
+                        <span class="px-2.5 py-1 bg-white/5 rounded-full">webMethods.io</span>
+                        <span class="px-2.5 py-1 bg-white/5 rounded-full">EDI</span>
+                        <span class="px-2.5 py-1 bg-white/5 rounded-full">SAP MDG</span>
+                    </div>
+                </div>
+
+                <!-- Galaxy POD -->
+                <div class="glass p-8 rounded-2xl border border-white/10 hover:border-cyan-500/50 transition duration-300 flex flex-col justify-between project-card">
+                    <div>
+                        <div class="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">Client WBA</div>
+                        <h3 class="text-3xl font-bold mb-4">Galaxy POD</h3>
+                        <p class="text-gray-300 text-sm mb-6">Streamlined HR request handling. Created SOAP/REST APIs with OAuth authentication and utilized JDBC adapters to fetch database records for IBM DataPower and Kenexa.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 text-xs font-mono text-gray-400">
+                        <span class="px-2.5 py-1 bg-white/5 rounded-full">SOAP/REST</span>
+                        <span class="px-2.5 py-1 bg-white/5 rounded-full">OAuth</span>
+                        <span class="px-2.5 py-1 bg-white/5 rounded-full">IBM DataPower</span>
+                    </div>
+                </div>
+
+                <!-- RFT Integration -->
+                <div class="glass p-8 rounded-2xl border border-white/10 hover:border-cyan-500/50 transition duration-300 flex flex-col justify-between project-card">
+                    <div>
+                        <div class="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">Walgreens</div>
+                        <h3 class="text-3xl font-bold mb-4">RFT Integration</h3>
+                        <p class="text-gray-300 text-sm mb-6">Managed seamless SAP and RxI integration. Conducted end-to-end testing, deployed to production, and provided warranty support and enhancements.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 text-xs font-mono text-gray-400">
+                        <span class="px-2.5 py-1 bg-white/5 rounded-full">SAP</span>
+                        <span class="px-2.5 py-1 bg-white/5 rounded-full">RxI</span>
+                        <span class="px-2.5 py-1 bg-white/5 rounded-full">Production Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications Section -->
+    <section class="py-32 px-8 md:px-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
+            <div>
+                <span class="text-cyan-400 uppercase tracking-widest text-xs font-bold block mb-4">05 / Credentials</span>
+                <h2 class="text-4xl font-bold mb-10">Certifications & Awards</h2>
+                <ul class="space-y-6 text-gray-300">
+                    <li class="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
+                        <span>Software AG Certified webMethods.io Integration Associate</span>
+                    </li>
+                    <li class="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
+                        <span>Microsoft Azure Administrator AZ-104</span>
+                    </li>
+                    <li class="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
+                        <span>Microsoft Azure Fundamentals AZ-900</span>
+                    </li>
+                    <li class="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
+                        <span>Wings1 Digital Certification & Fresco Play Milestone Award</span>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <span class="text-cyan-400 uppercase tracking-widest text-xs font-bold block mb-4">06 / Background</span>
+                <h2 class="text-4xl font-bold mb-10">Education</h2>
+                <div class="space-y-8">
+                    <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                        <h3 class="text-xl font-bold">Masters of Science in Information Technology</h3>
+                        <p class="text-cyan-400 text-sm mt-1">Central University of Himachal Pradesh</p>
+                        <div class="mt-4 flex justify-between text-xs font-mono text-gray-400">
+                            <span>CGPA: 9.10</span>
+                            <span>June 2021</span>
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                        <h3 class="text-xl font-bold">Bachelor of Computer Applications</h3>
+                        <p class="text-cyan-400 text-sm mt-1">Himachal Pradesh University</p>
+                        <div class="mt-4 flex justify-between text-xs font-mono text-gray-400">
+                            <span>CGPA: 7.83</span>
+                            <span>June 2018</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-8 md:px-16 border-t border-white/10 bg-black/60 text-center">
+        <div class="max-w-4xl mx-auto">
+            <span class="text-cyan-400 uppercase tracking-widest text-xs font-bold block mb-4">07 / Connect</span>
+            <h2 class="text-5xl md:text-7xl font-bold tracking-tight mb-8">LET'S BUILD SOMETHING AMAZING.</h2>
+            <p class="text-gray-400 mb-12 max-w-lg mx-auto">Reach out for enterprise integration consulting, architecture discussions, or technical leadership opportunities.</p>
+            <div class="flex flex-wrap justify-center gap-6 mb-16">
+                <a href="mailto:contactvinaychandel@gmail.com" class="px-8 py-4 bg-cyan-500 text-black font-bold text-sm tracking-wider uppercase rounded-full hover:bg-cyan-400 transition">Email Me</a>
+                <a href="https://linkedin.com/in/vinay-chandel-39837a133" target="_blank" class="px-8 py-4 border border-white/20 text-white font-bold text-sm tracking-wider uppercase rounded-full hover:bg-white/5 transition">LinkedIn</a>
+                <a href="https://github.com/vinaychandel1" target="_blank" class="px-8 py-4 border border-white/20 text-white font-bold text-sm tracking-wider uppercase rounded-full hover:bg-white/5 transition">GitHub</a>
+            </div>
+            <div class="text-sm font-mono text-gray-500">
+                Bengaluru, India, 560073 • +91-8219895658
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-8 border-t border-white/10 text-center text-xs font-mono text-gray-600">
+        &copy; 2026 Vinay Chandel. All rights reserved.
+    </footer>
 
     <script src="js/script.js"></script>
 </body>
